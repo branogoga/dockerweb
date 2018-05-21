@@ -1,1 +1,2 @@
-docker kill web
+#docker stop mysql
+docker kill apache
