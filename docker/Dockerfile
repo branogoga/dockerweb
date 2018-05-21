@@ -1,3 +1,3 @@
 FROM php:7.2-apache
 
-CMD ["/bin/sh"]
+RUN docker-php-ext-install mbstring pdo pdo_mysql

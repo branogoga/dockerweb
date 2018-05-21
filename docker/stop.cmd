@@ -1,2 +1,1 @@
-#docker stop mysql
-docker kill apache
+docker-compose down
