@@ -18,6 +18,8 @@ services:
             MYSQL_USER: dockerweb
             MYSQL_PASSWORD: dockerweb
             MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - data-db:/var/lib/mysql
     phpmyadmin:
         image:  phpmyadmin/phpmyadmin
         ports: 
@@ -32,3 +34,5 @@ services:
             - 8081:8080
         links:
             - db
+volumes:
+    data-db:
