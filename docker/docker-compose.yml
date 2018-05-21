@@ -4,13 +4,13 @@ services:
         build: .
         ports:
             - 80:80
+            - 443:443
         volumes:
             - ../source:/var/www/html
         links:
             - db
     db:
-        build: .
-        image: mariadb:10.1
+        image: mariadb
         ports:
             - 3306:3306
         environment:
@@ -18,3 +18,17 @@ services:
             MYSQL_USER: dockerweb
             MYSQL_PASSWORD: dockerweb
             MYSQL_ROOT_PASSWORD: root
+    phpmyadmin:
+        image:  phpmyadmin/phpmyadmin
+        ports: 
+            - 8080:80
+        links:
+            - db
+        environment:
+            PMA_HOST: db
+    adminer:
+        image:  adminer
+        ports:
+            - 8081:8080
+        links:
+            - db
